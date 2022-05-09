@@ -31,6 +31,7 @@ Goal: The aim of the project is to train the pre-defined machine learning model 
 
 * I have defined the url to '_unredactor.tsv_' file in the program. So, if the location of that file change or access to that repository becomes private then it is not possible to train and test the model.
 
+* If data is corrupted in the '_unredactor.tsv_' file then ML model can't be trained and results will be biased or won't be appropriate.
 
 ### Functions and approach
 
@@ -75,11 +76,11 @@ model_definition(names, test_names, _sentences, _test_sentences)
 
 * I am using make_union module from sklearn.pipeline library to unionize two different vectorizers called CountVectorizer and TfidfVectorizer.
 
-* I am using joblib library to save the machine learning model because there is no need to dynamically add the features to model at the time of processing.
+* I am first doing fit_transform on normalized training and validation sentences and converting them to features. Then applied transform method on testing data and converted them to features.
 
-* I am loading the ML model which was saved using joblib.load(fileName) method and calculating the precision_score, recall_score, and f1_score.
+* Used fit method to fit the training and validation features and names labels to the ML model. Then by passing testing data to predict method, I am predicting the labels for the test data.
 
-* Finally, returning the these parameters as output to the predictor method to print and display them to user.
+* Finally, returning the precision_score, recall_score, and f1_score as variables as output to the predictor method to print and display them to user.
 
 
 ### Test cases

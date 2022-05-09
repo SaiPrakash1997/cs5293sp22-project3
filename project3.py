@@ -119,16 +119,12 @@ def normalize_sentences(temp_redacted_sentences, temp_test_redacted_sentences):
 
 def model_definition(names, test_names, _sentences, _test_sentences):
     union = make_union(CountVectorizer(), TfidfVectorizer(ngram_range=(1, 2), min_df=2))
-    fileName = "randomForest.pkl"
     X = union.fit_transform(_sentences).toarray()
     X_test = union.transform(_test_sentences).toarray()
-    if not pathlib.Path(fileName).is_file():
-        union_model = RandomForestClassifier(n_estimators=100)
-        union_model.fit(X, names)
-        joblib.dump(union_model, fileName)
-    union_model_joblib = joblib.load(fileName)
-    union_model_pred = union_model_joblib.predict(X_test)
-    accuracy_score = union_model_joblib.score(X_test, test_names)
+    union_model = RandomForestClassifier(n_estimators=100)
+    union_model.fit(X, names)
+    union_model_pred = union_model.predict(X_test)
+    accuracy_score = union_model.score(X_test, test_names)
     precisionScore = precision_score(test_names, union_model_pred, average='macro')
     recallScore = recall_score(test_names, union_model_pred, average='macro')
     f1Score = f1_score(test_names, union_model_pred, average='macro')
