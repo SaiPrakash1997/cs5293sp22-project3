@@ -7,6 +7,28 @@ Goal: The aim of the project is to train the pre-defined machine learning model 
 ### How to run the application
 
 #### steps:
+
+#### Minimum system requirements:
+
+Note: To run this program without any interruptions. Please set the system requirements as specified.
+
+Machine configuration:
+
+- Machine family: GENERAL-PURPOSE
+
+- Series: E2
+
+- Machine type: e2-standard-8(8 vCPU, 32 GB memory)
+
+- Average time for program to run on above system requirements:
+
+                       
+                              10 minutes
+
+
+
+After setting up system requirements. Please follow below steps:
+
 * First clone the project using : git clone '_github_project_url_'
 * check to see if there is a directory named as 'cs5293sp22-project3' using ls command
 * open the directory using cd cs5293sp22-project3
@@ -14,6 +36,7 @@ Goal: The aim of the project is to train the pre-defined machine learning model 
 
                         
                      pipenv run python project3.py
+
 
 ### WEB OR EXTERNAL LIBRARIES:
 * pandas
