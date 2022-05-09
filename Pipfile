@@ -8,6 +8,7 @@ pandas = "*"
 nltk = "*"
 sklearn = "*"
 pytest = "*"
+joblib = "*"
 
 [dev-packages]
 
