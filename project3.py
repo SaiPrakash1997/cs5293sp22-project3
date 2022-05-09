@@ -1,12 +1,11 @@
-import pathlib
 import pandas as pd
 import nltk
 from nltk.stem import WordNetLemmatizer
 from nltk.tokenize import word_tokenize
-nltk.download('punkt')
-nltk.download('wordnet')
-nltk.download('omw-1.4')
-nltk.download('stopwords')
+nltk.download('punkt', quiet=True)
+nltk.download('wordnet', quiet=True)
+nltk.download('omw-1.4', quiet=True)
+nltk.download('stopwords', quiet=True)
 from nltk.corpus import stopwords
 from sklearn.pipeline import make_union
 from sklearn.feature_extraction.text import TfidfVectorizer
@@ -14,7 +13,6 @@ from sklearn.preprocessing import LabelEncoder
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.metrics import precision_score, recall_score, f1_score
-import joblib
 import warnings
 warnings.filterwarnings('always')
 warnings.filterwarnings('ignore')
@@ -40,6 +38,7 @@ def read_tsv(url):
     dataFrame = dataFrame.dropna(how='any', axis=0)
     le = LabelEncoder()
     dataFrame['names_label'] = le.fit_transform(dataFrame['actor_name'])
+    print("Extracted latest unredactor.tsv file and processed it!")
     return dataFrame
 
 
@@ -114,6 +113,7 @@ def normalize_sentences(temp_redacted_sentences, temp_test_redacted_sentences):
                 temp_str = temp_str.strip()
         if len(temp_str) != 0:
             _test_sentences.append(temp_str)
+    print("Normalization is applied on data!")
     return _sentences, _test_sentences
 
 

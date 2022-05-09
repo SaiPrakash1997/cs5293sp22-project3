@@ -56,6 +56,41 @@ After setting up system requirements. Please follow below steps:
 
 * If data is corrupted in the '_unredactor.tsv_' file then ML model can't be trained and results will be biased or won't be appropriate.
 
+* System needs internet connectivity for the program to get latest '_unredactor.tsv_' file from GitHub.
+
+* Due to bad tabs or data format issue, I am considering them as bad line and skipped them.
+
+* These issues persist in the dataset like less amount of data and duplicates in dataset. So, scores will be low.
+
+
+### Explored below Machine learning models and vectorizers:
+
+* Machine learning models used:
+
+       
+                         1. MLPClassifier
+                         2. AdaBoostClassifier
+                         3. DecisionTreeClassifier
+                         4. RandomForestClassifier
+                         5. MultinomialNB
+
+
+* Finally, according to data, I have chosen RandomForestClassifier model.
+
+* Vectorizers:
+
+
+
+                         1. CountVectorizer(Individually)
+                         2. TfidfVectorizer(Individually)
+                         3. DictVectorizer(Individually)
+
+
+* Finally, according to data, I have used make_union library to union CountVectorizer and TfidfVectorizer and used it in the code.
+
+
+
+
 ### Functions and approach
 
 predictor()
