@@ -1,12 +1,9 @@
-# cs5293sp22-project3
-
-Name: Sai Prakash Davuluri
-
-Goal: The aim of the project is to train the pre-defined machine learning model on training data and predict using testing data. Finally, we have to print the precision_score, recall_score, f1_score for the dataset.
+### Goal
+The aim of the project is to train the pre-defined machine learning model on training data and predict using testing data. Finally, we have to print the precision_score, recall_score, f1_score for the dataset.
 
 ### How to run the application
 
-#### steps:
+#### Steps:
 
 #### Minimum system requirements:
 
